@@ -12,6 +12,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
+    final String? firebaseAPIKey = dotenv.env['Firebase_web_secret_api_Key'];
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(getWidth(16)),
@@ -21,7 +22,7 @@ class SplashScreen extends StatelessWidget {
             children: [
               CustomText(text: 'Below is the Dotenv secret value', fontWeight: FontWeight.bold,),
               SizedBox(height: getHeight(36)),
-              CustomText(text: '${dotenv.env['Firebase_web_secret_api_Key']}', fontWeight: FontWeight.bold,),
+              CustomText(text: '$firebaseAPIKey', fontWeight: FontWeight.bold,),
             ],
           ),
         ),
