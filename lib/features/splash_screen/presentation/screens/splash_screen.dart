@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import '../../../../core/common/widgets/custom_text.dart';
 import '../../../../core/common/widgets/custom_textformfield.dart';
@@ -18,7 +19,9 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomText(text: 'This is Splash Screen'),
+              CustomText(text: 'Below is the Dotenv secret value', fontWeight: FontWeight.bold,),
+              SizedBox(height: getHeight(36)),
+              CustomText(text: '${dotenv.env['Firebase_web_secret_api_Key']}', fontWeight: FontWeight.bold,),
             ],
           ),
         ),
